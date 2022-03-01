@@ -1,0 +1,146 @@
+$backgroundolor: blue;
+$buttonSize:40px;
+body{
+    background-color: rgb(233, 192, 139);
+    margin: 0;
+    >header{
+        background-color: red;
+        position:fixed;
+        width: 100%;
+        top:0;
+        min-height:45px;
+        z-index: 1;
+        label{
+            position: absolute;
+            width: $buttonSize;
+            height: $buttonSize;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            cursor: pointer;
+            div{
+                border: 2px solid rgb(15, 135, 151);
+                width: 80%;
+                transition: 1s;
+            }
+        }
+        nav{
+            position:absolute;
+            display: flex;
+            transform:scale(0);
+            transition:0.5s;
+            flex-direction: column;
+            margin-top:$buttonSize;
+            height:calc(100vh - #{$buttonSize});
+            background-color: pink;
+            width: 100%;
+
+        }
+        a{
+            text-decoration:nona;
+            color:black;
+            padding: 5px;
+            
+        }
+        #toggler{
+            display: none;
+        }
+        #toggler:checked ~ nav{
+            transform:scale(1);
+        }
+        #toggler:checked ~ label{
+           border: 2px dashed rgb(250, 103, 6);
+            div{
+                position: absolute;
+                &:nth-child(1){
+                    
+                    transform: rotate(135deg);
+                }
+                &:nth-child(2){
+                   
+                    opacity: 0;
+                }
+                &:nth-child(3){
+                    transform: rotate(-135deg);
+                }
+                border-color:rgb(17, 86, 126);
+            }
+        }
+    }
+    >article ,main{
+
+        min-height:calc(100vh - #{$buttonSize});
+        padding-top:$buttonSize;
+      
+        padding-top:$buttonSize;
+        h1{
+            margin-left: 10em;
+        }
+        section{
+            display: flex;
+            flex-direction: column;
+            justify-content: spa;
+            align-items: center;
+            img{
+                width: 256px;
+                height: 192px;
+            }
+            padding: 0 10%;
+        }
+        
+    }
+    section{
+        header{
+            background-color: rgb(231, 228, 12);
+        }
+    }
+   
+    .left ,.right{
+        position: absolute;
+        
+        cursor: pointer;
+    }
+    .left{
+        left:10px;
+    }
+    .right{
+        right: 10px;
+    }
+}
+footer{
+    text-align: end;
+    background-color: aqua;
+}
+@media(min-width){
+    body{
+        header{
+            padding-left: 10px;
+            align-items: center;
+            label{
+                display:none ;
+            }
+            nav{
+                position: static;
+                transform: scale(1);
+                height: unset;
+                flex-direction: row;
+                margin-top: 0;
+                width: fit-content;
+                a{
+                    color:$backgroundolor
+                }
+            }
+
+        }
+        article ,main{
+            margin:0 20%;
+        }
+        #omnie{
+            section{
+                flex-direction: row;
+                
+            }
+        }
+    }
+}
